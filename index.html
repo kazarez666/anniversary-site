@@ -11,8 +11,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="themes-v3.css" />
   <link rel="stylesheet" href="transitions-v2.css" />
+  <link rel="stylesheet" href="enhancements-v1.css" />
 </head>
-<body data-theme="cocoa-paper">
+<body data-theme="cocoa-paper" data-step="0">
+  <div class="intro-screen" aria-hidden="true">
+    <div class="intro-inner">
+      <p class="intro-eyebrow">маленькое кое-что</p>
+      <h1 class="intro-title">Для Сонечки</h1>
+      <span class="intro-heart">♥</span>
+      <p class="intro-note">один год · одно большое «мы»</p>
+    </div>
+  </div>
+
   <main class="experience">
     <div class="scene" aria-hidden="true">
       <div class="bg-base"></div>
@@ -51,6 +61,8 @@
         <button class="theme-option" type="button" data-theme-choice="modern-grid"><i class="swatch swatch-5"></i><span>05</span><strong>Modern Grid</strong></button>
       </div>
     </aside>
+
+    <button class="sound-toggle" type="button" aria-pressed="false" aria-label="Включить тихий фоновый звук"><span>♩</span><small>Тихий звук</small></button>
 
     <section class="step step--hero is-active" data-step="0" aria-hidden="false">
       <div class="hero-layout">
@@ -121,7 +133,7 @@
     <section class="step step--final" data-step="4" aria-hidden="true">
       <div class="final-layout">
         <p class="kicker">И самое главное</p>
-        <div class="final-symbol" aria-hidden="true"><span>🐻</span><i>♥</i><span>🐰</span></div>
+        <button class="final-symbol easter-button" type="button" aria-label="Маленький секрет"><span>🐻</span><i>♥</i><span>🐰</span></button>
         <h2>Спасибо, что<br />выбрала <em>меня.</em></h2>
         <p class="final-sub">С первой годовщиной, радость моя.</p>
         <p class="final-love">Я люблю тебя больше, чем могут передать любые слова.</p>
@@ -129,6 +141,8 @@
         <button class="restart-button magnetic" type="button"><span>Посмотреть ещё раз</span><b>↺</b></button>
       </div>
     </section>
+
+    <div class="easter-message" aria-live="polite">ещё 365? ♥</div>
 
     <nav class="progress" aria-label="Прогресс поздравления">
       <button class="dot is-active" type="button" data-go="0" aria-label="Шаг 1"><span>01</span></button>
@@ -140,5 +154,6 @@
   </main>
   <script src="themes-v3.js"></script>
   <script src="transitions-v2.js"></script>
+  <script src="enhancements-v1.js"></script>
 </body>
 </html>
