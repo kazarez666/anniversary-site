@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6e8ea" />
+  <meta name="description" content="Небольшое романтическое поздравление с первой годовщиной." />
+  <title>С первой годовщиной, Сонечка ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="story" aria-live="polite">
+    <div class="ambient" aria-hidden="true">
+      <span class="glow glow--one"></span>
+      <span class="glow glow--two"></span>
+      <span class="glow glow--three"></span>
+      <span class="heart heart--one">♡</span>
+      <span class="heart heart--two">♡</span>
+      <span class="heart heart--three">♡</span>
+    </div>
+
+    <section class="step is-active" data-step="0" aria-hidden="false">
+      <div class="card">
+        <p class="eyebrow">01 · Наша первая годовщина</p>
+        <h1>С первой годовщиной, Сонечка</h1>
+        <p class="lead">
+          Сегодня у нас маленькая, но очень важная дата. Спасибо тебе за этот год —
+          за тепло, смех, поддержку и за то, что рядом с тобой обычные дни становятся особенными.
+        </p>
+        <button class="next-button" type="button">Далее <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <section class="step" data-step="1" aria-hidden="true">
+      <div class="card card--narrow">
+        <p class="eyebrow">02 · Иногда слов не хватает</p>
+        <p class="quote">
+          «Иногда очень сложно подобрать нужные слова, поэтому сегодня я решил ненадолго
+          одолжить их у одного замечательного фильма.»
+        </p>
+        <button class="next-button" type="button">Далее <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <section class="step" data-step="2" aria-hidden="true">
+      <div class="card movie-card">
+        <p class="eyebrow">03 · Та самая сцена</p>
+        <h2>«Бойфренд из будущего» <span class="movie-year">(About Time, 2013)</span></h2>
+        <p class="timecode">Тайм-код: <strong>01:48:00</strong></p>
+        <p class="lead lead--small">
+          Мне нравится мысль из этой части фильма: самое ценное — не идеальные моменты,
+          а возможность замечать счастье в нашей обычной жизни и выбирать друг друга снова и снова.
+        </p>
+        <a
+          class="scene-button"
+          href="https://www.youtube.com/results?search_query=About+Time+2013+final+scene"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Открыть сцену <span aria-hidden="true">↗</span>
+        </a>
+        <button class="next-button next-button--secondary" type="button">Далее <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <section class="step" data-step="3" aria-hidden="true">
+      <div class="card card--narrow">
+        <p class="eyebrow">04 · Спасибо тебе</p>
+        <p class="quote quote--smaller">
+          Спасибо за то, что ты есть в моей жизни. За твою нежность, терпение, заботу,
+          за наши разговоры, смешные мелочи и воспоминания, которые уже стали для меня очень дорогими.
+          Этот год показал мне, как много счастья может быть в простом «мы». Я хочу беречь это,
+          становиться для тебя лучше и вместе прожить ещё очень много прекрасных дней.
+        </p>
+        <button class="next-button" type="button">Далее <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <section class="step" data-step="4" aria-hidden="true">
+      <div class="card final-card">
+        <p class="eyebrow">05 · И самое главное</p>
+        <h2 class="final-title">
+          Спасибо, что выбрала меня.<br />
+          С первой годовщиной, радость моя,<br />
+          <span>я люблю тебя.</span>
+        </h2>
+        <div class="final-heart" aria-hidden="true">♥</div>
+        <button class="restart-button" type="button">Посмотреть ещё раз ↺</button>
+      </div>
+    </section>
+
+    <nav class="progress" aria-label="Прогресс поздравления">
+      <button class="dot is-active" type="button" data-go="0" aria-label="Шаг 1"></button>
+      <button class="dot" type="button" data-go="1" aria-label="Шаг 2"></button>
+      <button class="dot" type="button" data-go="2" aria-label="Шаг 3"></button>
+      <button class="dot" type="button" data-go="3" aria-label="Шаг 4"></button>
+      <button class="dot" type="button" data-go="4" aria-label="Шаг 5"></button>
+    </nav>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
