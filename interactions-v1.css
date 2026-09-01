@@ -1,0 +1,62 @@
+/* Interaction polish: parallax, video focus, living finale, hero heart, transition whispers */
+:root{--px:0px;--py:0px;--px2:0px;--py2:0px;--px3:0px;--py3:0px}
+
+/* very light depth — intentionally only a few pixels */
+.scene .bg-layer-a{translate:var(--px3) var(--py3)}
+.scene .bg-layer-b{translate:calc(var(--px3) * -.65) calc(var(--py3) * -.65)}
+.scene .bg-layer-c{translate:calc(var(--px2) * .45) calc(var(--py2) * -.45)}
+.scene .ambient-copy,.scene .ambient-extra{transition:opacity .55s ease,filter .55s ease;will-change:transform,opacity}
+.scene .a1,.scene .a4{margin-left:var(--px);margin-top:var(--py)}
+.scene .a2,.scene .a5{margin-left:calc(var(--px2) * -.7);margin-top:calc(var(--py2) * -.7)}
+.scene .a3,.scene .a6{margin-left:var(--px2);margin-top:calc(var(--py2) * .55)}
+.hero-art{translate:calc(var(--px) * .8) calc(var(--py) * .8);transition:translate .35s ease-out}
+.hero-disc{translate:calc(var(--px2) * -.4) calc(var(--py2) * -.4)}
+.cursor-light{translate:calc(var(--px3) * .35) calc(var(--py3) * .35)}
+
+/* Movie focus mode */
+.step--movie::before{content:"";position:fixed;inset:0;z-index:-1;background:rgba(6,8,6,0);backdrop-filter:blur(0);pointer-events:none;transition:background .7s ease,backdrop-filter .7s ease}
+body.is-video-focus .step--movie::before{background:rgba(7,9,7,.20);backdrop-filter:blur(2px)}
+body.is-video-focus .ambient-copy,body.is-video-focus .ambient-extra{opacity:.018!important;filter:blur(1.5px)}
+body.is-video-focus .bg-layer{opacity:.52}
+body.is-video-focus .video-shell{transform:translateY(-2px) scale(1.006);box-shadow:0 42px 120px rgba(0,0,0,.30),0 0 80px color-mix(in srgb,var(--accent) 15%,transparent)}
+.video-shell{transition:transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .7s ease,filter .7s ease}
+
+/* Hero heart becomes a tiny interactive scene */
+.hero-heart{cursor:pointer;outline:none;transition:filter .65s ease,text-shadow .65s ease,color .65s ease}
+.hero-heart:focus-visible{outline:2px solid color-mix(in srgb,var(--accent) 58%,transparent);outline-offset:14px;border-radius:45%}
+.hero-art.is-awake .hero-heart{filter:drop-shadow(0 24px 36px color-mix(in srgb,var(--accent) 22%,transparent));text-shadow:0 0 28px color-mix(in srgb,var(--accent) 38%,transparent),0 0 80px color-mix(in srgb,var(--accent2) 24%,transparent)}
+.hero-art.is-awake .orbit--a{animation-duration:8s}
+.hero-art.is-awake .orbit--b{animation-duration:11s}
+.hero-art.is-awake .hero-disc{animation-duration:3.2s}
+.heart-memory{position:absolute;z-index:4;left:50%;top:50%;padding:.42rem .7rem;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--surface) 86%,transparent);backdrop-filter:blur(14px);font:700 .58rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);opacity:0;transform:translate(-50%,-50%) scale(.75);transition:opacity .5s ease,transform .75s cubic-bezier(.2,.8,.2,1);pointer-events:none;white-space:nowrap}
+.hero-art.is-awake .heart-memory{opacity:.82}
+.hero-art.is-awake .heart-memory--1{transform:translate(calc(-50% - 12.8rem),calc(-50% - 6.2rem)) rotate(-6deg)}
+.hero-art.is-awake .heart-memory--2{transform:translate(calc(-50% + 11.7rem),calc(-50% - 7.5rem)) rotate(5deg)}
+.hero-art.is-awake .heart-memory--3{transform:translate(calc(-50% + 12.5rem),calc(-50% + 6.7rem)) rotate(-4deg)}
+.hero-art.is-awake .heart-memory--4{transform:translate(calc(-50% - 11rem),calc(-50% + 7.3rem)) rotate(4deg)}
+
+/* Finale keeps breathing after its entrance */
+body[data-step="4"] .bg-layer-a{animation:finalLightA 18s ease-in-out infinite alternate}
+body[data-step="4"] .bg-layer-b{animation:finalLightB 23s ease-in-out infinite alternate}
+body[data-step="4"] .final-symbol{animation:finalBreath 5.8s ease-in-out infinite}
+body[data-step="4"] .signature span{display:inline-block;animation:tinyHeartBeat 4.4s ease-in-out infinite}
+.final-rare-heart{position:fixed;z-index:9;bottom:-2rem;color:color-mix(in srgb,var(--accent) 35%,transparent);font-family:Georgia,serif;pointer-events:none;animation:rareHeart 9s ease-in forwards;filter:blur(.1px)}
+@keyframes finalLightA{0%{transform:translate3d(-1.5%,1%,0) scale(.98)}100%{transform:translate3d(2.5%,-2%,0) scale(1.06)}}
+@keyframes finalLightB{0%{transform:translate3d(2%,0,0) scale(1.02)}100%{transform:translate3d(-2%,2.5%,0) scale(.96)}}
+@keyframes finalBreath{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-3px) scale(1.025)}}
+@keyframes tinyHeartBeat{0%,78%,100%{transform:scale(1)}84%{transform:scale(1.18)}90%{transform:scale(.98)}95%{transform:scale(1.09)}}
+@keyframes rareHeart{0%{opacity:0;transform:translate3d(0,0,0) scale(.8) rotate(-8deg)}12%{opacity:.3}70%{opacity:.18}100%{opacity:0;transform:translate3d(var(--rare-drift),-105vh,0) scale(1.25) rotate(12deg)}}
+
+/* Quiet personal line inside transitions */
+.transition-whisper{position:absolute;z-index:8;left:50%;bottom:13%;transform:translate(-50%,14px);margin:0;width:min(82vw,680px);text-align:center;color:color-mix(in srgb,var(--buttonText) 78%,transparent);font-family:var(--serif);font-size:clamp(.95rem,1.8vw,1.35rem);font-style:italic;letter-spacing:.025em;opacity:0;filter:blur(5px);pointer-events:none;transition:opacity .55s ease,transform .75s ease,filter .65s ease}
+.stage-transition.is-active .transition-whisper{opacity:.72;transform:translate(-50%,0);filter:blur(0)}
+.stage-transition.is-revealing .transition-whisper{opacity:0;transform:translate(-50%,-8px);filter:blur(4px)}
+
+@media(max-width:760px){
+  .hero-art.is-awake .heart-memory--1{transform:translate(calc(-50% - 7.2rem),calc(-50% - 5.2rem)) rotate(-6deg)}
+  .hero-art.is-awake .heart-memory--2{transform:translate(calc(-50% + 7rem),calc(-50% - 5.8rem)) rotate(5deg)}
+  .hero-art.is-awake .heart-memory--3{transform:translate(calc(-50% + 7.4rem),calc(-50% + 5.2rem)) rotate(-4deg)}
+  .hero-art.is-awake .heart-memory--4{transform:translate(calc(-50% - 6.8rem),calc(-50% + 5.8rem)) rotate(4deg)}
+  .heart-memory{font-size:.49rem;padding:.36rem .52rem}
+}
+@media(prefers-reduced-motion:reduce){.scene .bg-layer,.hero-art,.hero-disc,.final-symbol,.signature span{translate:none!important;animation:none!important}.final-rare-heart{display:none}.transition-whisper{transition:none}}
