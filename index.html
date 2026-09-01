@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="themes-v3.css" />
+  <link rel="stylesheet" href="transitions-v1.css" />
 </head>
 <body data-theme="cocoa-paper">
   <main class="experience">
@@ -27,6 +28,12 @@
       <div class="ambient-copy a5">my person</div>
       <div class="ambient-copy a6">always us</div>
       <div id="heart-field" class="heart-field"></div>
+    </div>
+
+    <div class="stage-transition" aria-hidden="true">
+      <div class="transition-wash"></div>
+      <div class="transition-heart">♥</div>
+      <div class="transition-spark"></div>
     </div>
 
     <header class="topbar">
@@ -118,7 +125,7 @@
         <h2>Спасибо, что<br />выбрала <em>меня.</em></h2>
         <p class="final-sub">С первой годовщиной, радость моя.</p>
         <p class="final-love">Я люблю тебя больше, чем могут передать любые слова.</p>
-        <div class="signature">Навсегда твой противный Тёмка <span>♥</span></div>
+        <div class="signature">Навсегда твоя противнАЯ Тёмка <span>♥</span></div>
         <button class="restart-button magnetic" type="button"><span>Посмотреть ещё раз</span><b>↺</b></button>
       </div>
     </section>
@@ -132,5 +139,6 @@
     </nav>
   </main>
   <script src="themes-v3.js"></script>
+  <script src="transitions-v1.js"></script>
 </body>
 </html>
