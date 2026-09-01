@@ -2,6 +2,7 @@ const steps = [...document.querySelectorAll('.step')];
 const nextButtons = [...document.querySelectorAll('.next-button')];
 const dots = [...document.querySelectorAll('.dot')];
 const restartButton = document.querySelector('.restart-button');
+const holidayPlayer = document.querySelector('#holiday-player');
 
 let currentStep = 0;
 let locked = false;
@@ -14,10 +15,15 @@ function showStep(index) {
     const active = i === index;
     step.classList.toggle('is-active', active);
     step.setAttribute('aria-hidden', String(!active));
+    if (active) step.scrollTop = 0;
   });
 
   dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
   currentStep = index;
+
+  if (currentStep !== 2 && holidayPlayer && !holidayPlayer.paused) {
+    holidayPlayer.pause();
+  }
 
   window.setTimeout(() => {
     locked = false;
@@ -34,7 +40,25 @@ dots.forEach((dot) => {
 
 restartButton.addEventListener('click', () => showStep(0));
 
+if (holidayPlayer) {
+  const startTime = Number(holidayPlayer.dataset.start || 0);
+
+  holidayPlayer.addEventListener('loadedmetadata', () => {
+    if (Number.isFinite(startTime) && startTime > 0 && holidayPlayer.duration > startTime) {
+      holidayPlayer.currentTime = startTime;
+    }
+  });
+
+  holidayPlayer.addEventListener('play', () => {
+    if (holidayPlayer.currentTime < startTime - 5 && holidayPlayer.duration > startTime) {
+      holidayPlayer.currentTime = startTime;
+    }
+  }, { once: true });
+}
+
 document.addEventListener('keydown', (event) => {
+  if (document.activeElement?.tagName === 'VIDEO') return;
+
   if (event.key === 'ArrowRight' || event.key === 'Enter') {
     if (document.activeElement?.tagName === 'A') return;
     showStep(Math.min(currentStep + 1, steps.length - 1));
@@ -54,6 +78,8 @@ document.addEventListener('touchstart', (event) => {
 }, { passive: true });
 
 document.addEventListener('touchend', (event) => {
+  if (event.target.closest('video')) return;
+
   const deltaX = event.changedTouches[0].clientX - touchStartX;
   const deltaY = event.changedTouches[0].clientY - touchStartY;
 
