@@ -2,14 +2,12 @@ const steps = [...document.querySelectorAll('.step')];
 const nextButtons = [...document.querySelectorAll('.next-button')];
 const dots = [...document.querySelectorAll('.dot')];
 const restartButton = document.querySelector('.restart-button');
-const cards = [...document.querySelectorAll('.card')];
+const currentNumber = document.querySelector('#current-number');
+const heartField = document.querySelector('#heart-field');
+const magneticButtons = [...document.querySelectorAll('.magnetic')];
 
 let currentStep = 0;
 let locked = false;
-
-function updateBodyStep(index) {
-  document.body.dataset.step = String(index);
-}
 
 function showStep(index) {
   if (locked || index === currentStep || index < 0 || index >= steps.length) return;
@@ -28,15 +26,16 @@ function showStep(index) {
   });
 
   currentStep = index;
-  updateBodyStep(index);
+  currentNumber.textContent = String(index + 1).padStart(2, '0');
+  document.body.dataset.step = String(index);
 
   window.setTimeout(() => {
     locked = false;
-  }, 780);
+  }, 850);
 }
 
 nextButtons.forEach((button) => {
-  button.addEventListener('click', () => showStep(currentStep + 1));
+  button.addEventListener('click', () => showStep(Math.min(currentStep + 1, steps.length - 1)));
 });
 
 dots.forEach((dot) => {
@@ -46,14 +45,8 @@ dots.forEach((dot) => {
 restartButton?.addEventListener('click', () => showStep(0));
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowRight' || event.key === 'Enter') {
-    if (document.activeElement?.tagName === 'IFRAME') return;
-    showStep(Math.min(currentStep + 1, steps.length - 1));
-  }
-
-  if (event.key === 'ArrowLeft') {
-    showStep(Math.max(currentStep - 1, 0));
-  }
+  if (event.key === 'ArrowRight') showStep(Math.min(currentStep + 1, steps.length - 1));
+  if (event.key === 'ArrowLeft') showStep(Math.max(currentStep - 1, 0));
 });
 
 let touchStartX = 0;
@@ -65,35 +58,55 @@ document.addEventListener('touchstart', (event) => {
 }, { passive: true });
 
 document.addEventListener('touchend', (event) => {
+  if (event.target.closest('button, iframe, .video-shell')) return;
+
   const deltaX = event.changedTouches[0].clientX - touchStartX;
   const deltaY = event.changedTouches[0].clientY - touchStartY;
 
-  if (Math.abs(deltaX) < 55 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+  if (Math.abs(deltaX) < 60 || Math.abs(deltaX) < Math.abs(deltaY)) return;
   if (deltaX < 0) showStep(Math.min(currentStep + 1, steps.length - 1));
   if (deltaX > 0) showStep(Math.max(currentStep - 1, 0));
 }, { passive: true });
 
-window.addEventListener('mousemove', (event) => {
-  const x = `${(event.clientX / window.innerWidth) * 100}%`;
-  const y = `${(event.clientY / window.innerHeight) * 100}%`;
-  document.documentElement.style.setProperty('--mx', x);
-  document.documentElement.style.setProperty('--my', y);
+window.addEventListener('pointermove', (event) => {
+  document.documentElement.style.setProperty('--mx', `${event.clientX}px`);
+  document.documentElement.style.setProperty('--my', `${event.clientY}px`);
 });
 
-cards.forEach((card) => {
-  card.addEventListener('mousemove', (event) => {
+function createHearts() {
+  if (!heartField) return;
+  const amount = window.innerWidth < 700 ? 12 : 22;
+  heartField.innerHTML = '';
+
+  for (let i = 0; i < amount; i += 1) {
+    const heart = document.createElement('span');
+    heart.className = 'floating-heart';
+    heart.textContent = i % 4 === 0 ? '♥' : '♡';
+    heart.style.left = `${Math.random() * 100}%`;
+    heart.style.top = `${95 + Math.random() * 30}%`;
+    heart.style.fontSize = `${12 + Math.random() * 34}px`;
+    heart.style.animationDuration = `${12 + Math.random() * 18}s`;
+    heart.style.animationDelay = `${-Math.random() * 28}s`;
+    heart.style.setProperty('--drift', `${-80 + Math.random() * 160}px`);
+    heartField.appendChild(heart);
+  }
+}
+
+createHearts();
+window.addEventListener('resize', createHearts);
+
+magneticButtons.forEach((button) => {
+  button.addEventListener('pointermove', (event) => {
     if (window.innerWidth < 900) return;
-    const rect = card.getBoundingClientRect();
-    const px = (event.clientX - rect.left) / rect.width;
-    const py = (event.clientY - rect.top) / rect.height;
-    const rotateY = (px - 0.5) * 6;
-    const rotateX = (0.5 - py) * 5;
-    card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    const rect = button.getBoundingClientRect();
+    const x = event.clientX - rect.left - rect.width / 2;
+    const y = event.clientY - rect.top - rect.height / 2;
+    button.style.transform = `translate(${x * 0.08}px, ${y * 0.12 - 3}px)`;
   });
 
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg)';
+  button.addEventListener('pointerleave', () => {
+    button.style.transform = '';
   });
 });
 
-updateBodyStep(0);
+document.body.dataset.step = '0';
