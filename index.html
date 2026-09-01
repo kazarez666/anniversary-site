@@ -34,12 +34,12 @@
       </div>
     </section>
 
-    <section class="step" data-step="1" aria-hidden="true">
+    <section class="step step--compact" data-step="1" aria-hidden="true">
       <div class="card card--narrow">
         <p class="eyebrow">02 · Иногда слов не хватает</p>
-        <p class="quote">
-          «Иногда очень сложно подобрать нужные слова, поэтому сегодня я решил ненадолго
-          одолжить их у одного замечательного фильма.»
+        <p class="quote quote--intro">
+          Иногда очень сложно подобрать нужные слова, поэтому сегодня я решил ненадолго
+          одолжить их у одного замечательного фильма.
         </p>
         <button class="next-button" type="button">Далее <span aria-hidden="true">→</span></button>
       </div>
@@ -48,32 +48,31 @@
     <section class="step" data-step="2" aria-hidden="true">
       <div class="card movie-card">
         <p class="eyebrow">03 · Та самая сцена</p>
-        <h2>«Бойфренд из будущего» <span class="movie-year">(About Time, 2013)</span></h2>
-        <p class="timecode">Тайм-код: <strong>01:48:00</strong></p>
-        <p class="lead lead--small">
-          Мне нравится мысль из этой части фильма: самое ценное — не идеальные моменты,
-          а возможность замечать счастье в нашей обычной жизни и выбирать друг друга снова и снова.
-        </p>
-        <a
-          class="scene-button"
-          href="https://www.youtube.com/results?search_query=About+Time+2013+final+scene"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Открыть сцену <span aria-hidden="true">↗</span>
-        </a>
-        <button class="next-button next-button--secondary" type="button">Далее <span aria-hidden="true">→</span></button>
+        <h2>«Отпуск по обмену» <span class="movie-year">The Holiday, 2006</span></h2>
+        <p class="timecode">Тайм-код: <strong>01:51:00</strong></p>
+
+        <div class="video-shell">
+          <video id="holiday-player" controls playsinline preload="metadata" data-start="6660">
+            <source src="assets/the-holiday.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает встроенное видео.
+          </video>
+        </div>
+
+        <button class="next-button" type="button">Далее <span aria-hidden="true">→</span></button>
       </div>
     </section>
 
-    <section class="step" data-step="3" aria-hidden="true">
-      <div class="card card--narrow">
-        <p class="eyebrow">04 · Спасибо тебе</p>
-        <p class="quote quote--smaller">
-          Спасибо за то, что ты есть в моей жизни. За твою нежность, терпение, заботу,
-          за наши разговоры, смешные мелочи и воспоминания, которые уже стали для меня очень дорогими.
-          Этот год показал мне, как много счастья может быть в простом «мы». Я хочу беречь это,
-          становиться для тебя лучше и вместе прожить ещё очень много прекрасных дней.
+    <section class="step step--thanks" data-step="3" aria-hidden="true">
+      <div class="card card--wide">
+        <p class="eyebrow">04 · Есть ещё кое-что</p>
+        <p class="quote quote--thanks">
+          Есть ещё кое-что, за что я очень хочу сказать тебе спасибо. Спасибо, что остаёшься рядом,
+          даже когда со мной совсем непросто. Спасибо, что принимаешь мои тревоги, переживания и обиды,
+          не отворачиваешься от меня и продолжаешь быть рядом. Спасибо, что борешься не только за меня,
+          но и за нас — за наши отношения, за наше «мы». Спасибо, что готова меняться вместе со мной,
+          искать компромиссы, слышать меня и строить наши отношения вдвоём. Для меня это невероятно ценно.
+          Спасибо, что продолжаешь выбирать меня каждый день. Я вижу это и обещаю никогда не воспринимать
+          твою любовь и твоё терпение как должное.
         </p>
         <button class="next-button" type="button">Далее <span aria-hidden="true">→</span></button>
       </div>
@@ -82,10 +81,13 @@
     <section class="step" data-step="4" aria-hidden="true">
       <div class="card final-card">
         <p class="eyebrow">05 · И самое главное</p>
+        <div class="hugging-animals" aria-hidden="true">
+          <span>🐻</span><span class="tiny-heart">♥</span><span>🐰</span>
+        </div>
         <h2 class="final-title">
           Спасибо, что выбрала меня.<br />
-          С первой годовщиной, радость моя,<br />
-          <span>я люблю тебя.</span>
+          С первой годовщиной, радость моя.<br />
+          <span>Я люблю тебя больше, чем могу передать любые слова.</span>
         </h2>
         <div class="final-heart" aria-hidden="true">♥</div>
         <button class="restart-button" type="button">Посмотреть ещё раз ↺</button>
