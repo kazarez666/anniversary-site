@@ -3,29 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#08080d" />
+  <meta name="theme-color" content="#15120f" />
   <meta name="description" content="Небольшое романтическое поздравление с первой годовщиной." />
   <title>С первой годовщиной, Сонечка ❤️</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260901-0515" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20260901-0528" />
 </head>
 <body>
   <main class="experience">
     <div class="scene" aria-hidden="true">
-      <div class="noise"></div>
+      <div class="gradient-flow"></div>
+      <div class="grain"></div>
       <div class="cursor-light"></div>
-      <div class="orb orb-a"></div>
-      <div class="orb orb-b"></div>
-      <div class="orb orb-c"></div>
-      <div class="love-ribbon love-ribbon--top"><div>LOVE YOU · LOVE YOU · LOVE YOU · LOVE YOU · LOVE YOU · LOVE YOU · </div></div>
-      <div class="love-ribbon love-ribbon--bottom"><div>ONE YEAR · MY LOVE · FOREVER US · ONE YEAR · MY LOVE · FOREVER US · </div></div>
-      <div class="heart-field" id="heart-field"></div>
+      <div class="ambient-copy ambient-copy--a">love you</div>
+      <div class="ambient-copy ambient-copy--b">forever</div>
+      <div class="ambient-copy ambient-copy--c">365 days</div>
+      <div class="ambient-copy ambient-copy--d">ты + я</div>
+      <div class="ambient-copy ambient-copy--e">my person</div>
+      <div class="ambient-copy ambient-copy--f">always us</div>
+      <div id="heart-field" class="heart-field"></div>
     </div>
 
     <header class="topbar">
-      <div class="brand"><span class="brand-mark">S</span><span>for Sonya</span></div>
+      <div class="brand"><span class="brand-mark">S</span><span>For Сонечка</span></div>
       <div class="counter"><span id="current-number">01</span><i></i><span>05</span></div>
     </header>
 
@@ -38,40 +40,42 @@
           <button class="next-button magnetic" type="button"><span>Продолжить</span><b>↗</b></button>
         </div>
         <div class="hero-art" aria-hidden="true">
-          <div class="halo"></div>
-          <div class="glass-heart">♥</div>
-          <div class="orbit orbit-1"></div>
-          <div class="orbit orbit-2"></div>
-          <span class="floating-word fw-1">you</span>
-          <span class="floating-word fw-2">&amp; me</span>
-          <span class="floating-word fw-3">365</span>
+          <div class="hero-disc"></div>
+          <div class="hero-heart">♥</div>
+          <div class="orbit orbit--a"></div>
+          <div class="orbit orbit--b"></div>
+          <span class="tag tag--one">365</span>
+          <span class="tag tag--two">you & me</span>
+          <span class="tag tag--three">one year</span>
         </div>
       </div>
     </section>
 
     <section class="step step--words" data-step="1" aria-hidden="true">
-      <div class="editorial-layout">
-        <div class="side-index">02</div>
-        <div class="editorial-copy">
+      <div class="words-layout">
+        <div class="words-side"><span>02</span><small>WORDS</small></div>
+        <div class="words-main">
           <p class="kicker">Иногда слов не хватает</p>
           <p class="statement">Иногда очень сложно подобрать нужные слова, поэтому сегодня я решил ненадолго одолжить их у одного фильма:</p>
           <button class="next-button magnetic" type="button"><span>К той самой сцене</span><b>↗</b></button>
         </div>
-        <div class="editorial-aside" aria-hidden="true"><span>words</span><span>are</span><span>not</span><span>enough</span></div>
+        <div class="words-note" aria-hidden="true">some feelings<br />deserve a scene</div>
       </div>
     </section>
 
     <section class="step step--movie" data-step="2" aria-hidden="true">
       <div class="movie-layout">
-        <div class="movie-heading">
+        <div class="movie-head">
           <p class="kicker">Та самая сцена</p>
-          <h2>«Отпуск<br />по обмену»</h2>
+          <h2>«Отпуск по обмену»</h2>
           <p class="movie-sub">The Holiday · 2006</p>
-          <div class="timecode"><span>тайм-код</span><strong>01:46:51</strong></div>
+          <div class="timecode"><span>◷ Тайм-код</span><strong>01:46:51</strong></div>
         </div>
         <div class="player-wrap">
           <div class="player-label">PLAY THE MOMENT</div>
-          <div class="video-shell"><iframe src="https://rutube.ru/play/embed/c8179a079a713e41265b4bab2c013a07/" title="Отпуск по обмену — RuTube" allow="clipboard-write; autoplay; fullscreen" frameborder="0" allowfullscreen></iframe></div>
+          <div class="video-shell">
+            <iframe src="https://rutube.ru/play/embed/c8179a079a713e41265b4bab2c013a07/" title="Отпуск по обмену — RuTube" allow="clipboard-write; autoplay; fullscreen" frameborder="0" allowfullscreen></iframe>
+          </div>
           <button class="next-button magnetic" type="button"><span>Дальше</span><b>↗</b></button>
         </div>
       </div>
@@ -79,12 +83,12 @@
 
     <section class="step step--thanks" data-step="3" aria-hidden="true">
       <div class="thanks-layout">
-        <div class="thanks-title">
+        <div class="thanks-intro">
           <p class="kicker">Есть ещё кое-что</p>
-          <h2>Спасибо<br /><em>тебе.</em></h2>
-          <div class="vertical-note">FOR EVERY DAY · FOR EVERY “US”</div>
+          <h2>Спасибо тебе.</h2>
+          <p class="thanks-deck">За терпение. За выбор. За наше «мы».</p>
         </div>
-        <div class="thanks-copy">
+        <div class="thanks-panel">
           <p>Есть ещё кое-что, за что я очень хочу сказать тебе спасибо. Спасибо, что остаёшься рядом, даже когда со мной совсем непросто. Спасибо, что принимаешь мои тревоги, переживания и обиды, не отворачиваешься от меня и продолжаешь быть рядом. Спасибо, что борешься не только за меня, но и за нас — за наши отношения, за наше «мы». Спасибо, что готова меняться вместе со мной, искать компромиссы, слышать меня и строить наши отношения вдвоём. Для меня это невероятно ценно. Спасибо, что продолжаешь выбирать меня каждый день. Я вижу это и обещаю никогда не воспринимать твою любовь и твоё терпение как должное.</p>
           <button class="next-button magnetic" type="button"><span>И самое главное</span><b>↗</b></button>
         </div>
@@ -98,7 +102,7 @@
         <h2>Спасибо, что<br />выбрала <em>меня.</em></h2>
         <p class="final-sub">С первой годовщиной, радость моя.</p>
         <p class="final-love">Я люблю тебя больше, чем могут передать любые слова.</p>
-        <div class="signature">always yours <span>♥</span></div>
+        <div class="signature">Навсегда твоя противная Тёмка <span>♥</span></div>
         <button class="restart-button magnetic" type="button"><span>Посмотреть ещё раз</span><b>↺</b></button>
       </div>
     </section>
@@ -111,6 +115,6 @@
       <button class="dot" type="button" data-go="4" aria-label="Шаг 5"><span>05</span></button>
     </nav>
   </main>
-  <script src="script.js?v=20260901-0515"></script>
+  <script src="script.js?v=20260901-0528"></script>
 </body>
 </html>
