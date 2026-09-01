@@ -11,13 +11,8 @@
   --shadow: 0 24px 70px rgba(101, 65, 78, 0.14);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -31,14 +26,8 @@ body {
     linear-gradient(135deg, var(--bg-1), var(--bg-2) 48%, var(--bg-3));
 }
 
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-button {
-  font: inherit;
-}
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
 
 .story {
   position: relative;
@@ -65,26 +54,9 @@ button {
   animation: drift 13s ease-in-out infinite alternate;
 }
 
-.glow--one {
-  left: -10rem;
-  top: -8rem;
-  background: #ffd3dc;
-}
-
-.glow--two {
-  right: -10rem;
-  bottom: -12rem;
-  background: #dcd0f4;
-  animation-delay: -5s;
-}
-
-.glow--three {
-  width: 24rem;
-  right: 18%;
-  top: 20%;
-  background: #ffe8cf;
-  animation-delay: -9s;
-}
+.glow--one { left: -10rem; top: -8rem; background: #ffd3dc; }
+.glow--two { right: -10rem; bottom: -12rem; background: #dcd0f4; animation-delay: -5s; }
+.glow--three { width: 24rem; right: 18%; top: 20%; background: #ffe8cf; animation-delay: -9s; }
 
 .heart {
   position: absolute;
@@ -94,46 +66,25 @@ button {
   user-select: none;
 }
 
-.heart--one {
-  left: 7%;
-  top: 72%;
-  font-size: clamp(3rem, 8vw, 7rem);
-}
-
-.heart--two {
-  right: 8%;
-  top: 12%;
-  font-size: clamp(2rem, 5vw, 4.5rem);
-  animation-delay: -3s;
-}
-
-.heart--three {
-  right: 20%;
-  bottom: 10%;
-  font-size: clamp(1.8rem, 4vw, 3.2rem);
-  animation-delay: -6s;
-}
+.heart--one { left: 7%; top: 72%; font-size: clamp(3rem, 8vw, 7rem); }
+.heart--two { right: 8%; top: 12%; font-size: clamp(2rem, 5vw, 4.5rem); animation-delay: -3s; }
+.heart--three { right: 20%; bottom: 10%; font-size: clamp(1.8rem, 4vw, 3.2rem); animation-delay: -6s; }
 
 .step {
   position: absolute;
   inset: 0;
   display: grid;
   place-items: center;
-  padding: clamp(1.25rem, 4vw, 3rem);
+  padding: clamp(1.25rem, 4vw, 3rem) clamp(1rem, 4vw, 3rem) max(4.5rem, calc(env(safe-area-inset-bottom) + 3.5rem));
+  overflow-y: auto;
+  overscroll-behavior: contain;
   opacity: 0;
   visibility: hidden;
   transform: translateY(18px) scale(0.99);
-  transition:
-    opacity 650ms ease,
-    transform 650ms cubic-bezier(.22, .8, .3, 1),
-    visibility 650ms;
+  transition: opacity 650ms ease, transform 650ms cubic-bezier(.22, .8, .3, 1), visibility 650ms;
 }
 
-.step.is-active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0) scale(1);
-}
+.step.is-active { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
 
 .card {
   width: min(860px, 100%);
@@ -147,14 +98,10 @@ button {
   text-align: center;
 }
 
-.card--narrow {
-  width: min(760px, 100%);
-}
+.card--narrow { width: min(760px, 100%); }
+.card--wide { width: min(1040px, 100%); }
 
-.step.is-active .card > * {
-  animation: reveal 700ms both;
-}
-
+.step.is-active .card > * { animation: reveal 700ms both; }
 .step.is-active .card > *:nth-child(2) { animation-delay: 90ms; }
 .step.is-active .card > *:nth-child(3) { animation-delay: 180ms; }
 .step.is-active .card > *:nth-child(4) { animation-delay: 270ms; }
@@ -170,29 +117,10 @@ button {
   text-transform: uppercase;
 }
 
-h1,
-h2,
-.quote,
-.final-title {
-  font-family: "Cormorant Garamond", Georgia, serif;
-}
-
-h1,
-h2 {
-  margin: 0;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-}
-
-h1 {
-  font-size: clamp(3rem, 8vw, 6.6rem);
-  line-height: 0.95;
-}
-
-h2 {
-  font-size: clamp(2.4rem, 6vw, 4.7rem);
-  line-height: 1;
-}
+h1, h2, .quote, .final-title { font-family: "Cormorant Garamond", Georgia, serif; }
+h1, h2 { margin: 0; font-weight: 600; letter-spacing: -0.025em; }
+h1 { font-size: clamp(3rem, 8vw, 6.6rem); line-height: 0.95; }
+h2 { font-size: clamp(2.2rem, 5.3vw, 4.3rem); line-height: 1; }
 
 .movie-year {
   display: block;
@@ -212,25 +140,13 @@ h2 {
   line-height: 1.8;
 }
 
-.lead--small {
-  font-size: clamp(0.95rem, 2vw, 1.08rem);
-}
-
-.quote {
-  margin: 0;
-  font-size: clamp(2rem, 5.7vw, 4.6rem);
-  line-height: 1.13;
-  font-weight: 600;
-}
-
-.quote--smaller {
-  font-size: clamp(1.65rem, 4vw, 3rem);
-  line-height: 1.35;
-}
+.quote { margin: 0; font-size: clamp(2rem, 5.7vw, 4.6rem); line-height: 1.13; font-weight: 600; }
+.quote--intro { font-size: clamp(1.55rem, 4.2vw, 3.15rem); line-height: 1.22; }
+.quote--thanks { font-size: clamp(1.18rem, 2.5vw, 2rem); line-height: 1.45; font-weight: 500; }
 
 .timecode {
   display: inline-block;
-  margin: 1.35rem 0 0;
+  margin: 1.15rem 0 0;
   padding: 0.55rem 0.9rem;
   border-radius: 999px;
   color: var(--accent-dark);
@@ -238,15 +154,30 @@ h2 {
   font-size: 0.9rem;
 }
 
-.next-button,
-.scene-button,
-.restart-button {
+.video-shell {
+  width: min(720px, 100%);
+  margin: 1.2rem auto 0;
+  overflow: hidden;
+  border-radius: 1.35rem;
+  background: rgba(54, 39, 46, 0.92);
+  box-shadow: 0 18px 44px rgba(75, 50, 60, 0.16);
+}
+
+.video-shell video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #241b20;
+}
+
+.next-button, .restart-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
   min-height: 50px;
-  margin-top: 2rem;
+  margin-top: 1.6rem;
   padding: 0.85rem 1.35rem;
   border: 0;
   border-radius: 999px;
@@ -255,22 +186,10 @@ h2 {
   transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
-.next-button,
-.scene-button {
+.next-button {
   color: white;
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   box-shadow: 0 10px 26px rgba(149, 85, 106, 0.24);
-}
-
-.scene-button {
-  margin-right: 0.5rem;
-}
-
-.next-button--secondary {
-  margin-left: 0.5rem;
-  color: var(--accent-dark);
-  background: rgba(255, 255, 255, 0.58);
-  box-shadow: inset 0 0 0 1px rgba(149, 85, 106, 0.16);
 }
 
 .restart-button {
@@ -279,41 +198,36 @@ h2 {
   box-shadow: inset 0 0 0 1px rgba(149, 85, 106, 0.15);
 }
 
-.next-button:hover,
-.scene-button:hover,
-.restart-button:hover {
-  transform: translateY(-2px);
-}
-
-.next-button:active,
-.scene-button:active,
-.restart-button:active {
-  transform: translateY(0) scale(0.98);
-}
-
-.next-button:focus-visible,
-.scene-button:focus-visible,
-.restart-button:focus-visible,
-.dot:focus-visible {
+.next-button:hover, .restart-button:hover { transform: translateY(-2px); }
+.next-button:active, .restart-button:active { transform: translateY(0) scale(0.98); }
+.next-button:focus-visible, .restart-button:focus-visible, .dot:focus-visible {
   outline: 3px solid rgba(149, 85, 106, 0.28);
   outline-offset: 4px;
 }
 
 .final-title {
   margin: 0;
-  font-size: clamp(2.5rem, 6.8vw, 5.5rem);
+  font-size: clamp(2.2rem, 5.8vw, 4.9rem);
   font-weight: 600;
-  line-height: 1.04;
+  line-height: 1.06;
 }
+.final-title span { color: var(--accent-dark); }
 
-.final-title span {
-  color: var(--accent-dark);
+.hugging-animals {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0 auto 1rem;
+  font-size: clamp(2.8rem, 7vw, 5.3rem);
+  animation: cuddle 2.8s ease-in-out infinite;
 }
+.hugging-animals .tiny-heart { color: var(--accent); font-size: 0.42em; transform: translateY(-0.8em); }
 
 .final-heart {
-  margin-top: 1.3rem;
+  margin-top: 1rem;
   color: var(--accent);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2.2rem, 5vw, 4rem);
   animation: pulse 1.9s ease-in-out infinite;
 }
 
@@ -337,70 +251,46 @@ h2 {
   cursor: pointer;
   transition: width 220ms ease, background 220ms ease;
 }
+.dot.is-active { width: 28px; background: rgba(149, 85, 106, 0.72); }
 
-.dot.is-active {
-  width: 28px;
-  background: rgba(149, 85, 106, 0.72);
-}
-
-@keyframes reveal {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes drift {
-  from { transform: translate3d(-2%, -1%, 0) scale(0.95); }
-  to { transform: translate3d(7%, 5%, 0) scale(1.08); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(-6deg); }
-  50% { transform: translateY(-20px) rotate(5deg); }
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
+@keyframes reveal { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes drift { from { transform: translate3d(-2%, -1%, 0) scale(0.95); } to { transform: translate3d(7%, 5%, 0) scale(1.08); } }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-6deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+@keyframes cuddle { 0%, 100% { transform: scale(1) rotate(-1deg); } 50% { transform: scale(1.04) rotate(1deg); } }
 
 @media (max-width: 720px) {
-  .card {
-    padding: 2rem 1.4rem;
-    border-radius: 1.6rem;
-  }
-
-  .quote {
-    line-height: 1.18;
-  }
-
-  .movie-card .scene-button,
-  .movie-card .next-button {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .movie-card .next-button {
-    margin-top: 0.7rem;
-  }
-
-  .progress {
-    bottom: max(0.85rem, env(safe-area-inset-bottom));
-  }
+  .step { place-items: start center; padding-top: max(1rem, env(safe-area-inset-top)); }
+  .card { padding: 1.55rem 1.15rem; border-radius: 1.5rem; margin: auto 0; }
+  .step--thanks .card { padding-top: 1.35rem; padding-bottom: 1.35rem; }
+  .quote--intro { font-size: clamp(1.45rem, 7vw, 2.25rem); }
+  .quote--thanks { font-size: clamp(1.05rem, 4.4vw, 1.35rem); line-height: 1.42; }
+  .movie-card { padding-top: 1.35rem; }
+  .movie-card h2 { font-size: clamp(2rem, 9vw, 3.25rem); }
+  .video-shell { border-radius: 1rem; }
+  .next-button, .restart-button { width: min(100%, 320px); }
+  .progress { bottom: max(0.85rem, env(safe-area-inset-bottom)); }
 }
 
-@media (max-height: 700px) {
-  .card {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
+@media (max-height: 760px) {
+  .step { place-items: start center; }
+  .card { padding-top: 1.35rem; padding-bottom: 1.35rem; margin: auto 0; }
+  h1 { font-size: clamp(2.35rem, 7vw, 4.4rem); }
+  h2 { font-size: clamp(1.9rem, 5vw, 3.4rem); }
+  .quote--intro { font-size: clamp(1.4rem, 4vw, 2.5rem); }
+  .quote--thanks { font-size: clamp(1rem, 2.3vw, 1.55rem); line-height: 1.38; }
+  .next-button, .restart-button { margin-top: 1rem; }
+  .hugging-animals { margin-bottom: 0.6rem; }
+  .final-heart { margin-top: 0.55rem; }
+}
 
-  h1 { font-size: clamp(2.4rem, 7vw, 4.6rem); }
-  h2 { font-size: clamp(2rem, 5.5vw, 3.8rem); }
-  .quote { font-size: clamp(1.65rem, 4.8vw, 3.4rem); }
-  .quote--smaller { font-size: clamp(1.35rem, 3.5vw, 2.3rem); }
-  .lead { line-height: 1.55; }
-  .next-button, .scene-button, .restart-button { margin-top: 1.2rem; }
+@media (max-height: 600px) {
+  .eyebrow { margin-bottom: 0.55rem; }
+  .quote--intro { font-size: 1.35rem; }
+  .quote--thanks { font-size: 0.98rem; line-height: 1.34; }
+  .timecode { margin-top: 0.65rem; }
+  .video-shell { margin-top: 0.75rem; max-width: 560px; }
+  .final-title { font-size: clamp(1.75rem, 5vw, 3.2rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {
