@@ -3,26 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#17251c" />
+  <meta name="theme-color" content="#0c1710" />
   <meta name="description" content="Небольшое романтическое поздравление с первой годовщиной." />
   <title>С первой годовщиной, Сонечка ❤️</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles-green-v2.css" />
+  <link rel="stylesheet" href="themes-v1.css" />
 </head>
-<body>
+<body data-theme="emerald-mesh">
   <main class="experience">
     <div class="scene" aria-hidden="true">
-      <div class="gradient-flow"></div>
+      <div class="bg-base"></div>
+      <div class="bg-layer bg-layer-a"></div>
+      <div class="bg-layer bg-layer-b"></div>
+      <div class="bg-layer bg-layer-c"></div>
       <div class="grain"></div>
       <div class="cursor-light"></div>
-      <div class="ambient-copy ambient-copy--a">love you</div>
-      <div class="ambient-copy ambient-copy--b">forever</div>
-      <div class="ambient-copy ambient-copy--c">365 days</div>
-      <div class="ambient-copy ambient-copy--d">ты + я</div>
-      <div class="ambient-copy ambient-copy--e">my person</div>
-      <div class="ambient-copy ambient-copy--f">always us</div>
+      <div class="ambient-copy a1">love you</div>
+      <div class="ambient-copy a2">forever</div>
+      <div class="ambient-copy a3">365 days</div>
+      <div class="ambient-copy a4">ты + я</div>
+      <div class="ambient-copy a5">my person</div>
+      <div class="ambient-copy a6">always us</div>
       <div id="heart-field" class="heart-field"></div>
     </div>
 
@@ -30,6 +33,17 @@
       <div class="brand"><span class="brand-mark">S</span><span>For Сонечка</span></div>
       <div class="counter"><span id="current-number">01</span><i></i><span>05</span></div>
     </header>
+
+    <aside class="theme-picker" aria-label="Выбор стиля">
+      <button class="theme-toggle" type="button" aria-expanded="true"><span>Стиль</span><b>✦</b></button>
+      <div class="theme-options">
+        <button class="theme-option is-active" type="button" data-theme-choice="emerald-mesh"><i class="swatch swatch-1"></i><span>01</span><strong>Emerald Mesh</strong></button>
+        <button class="theme-option" type="button" data-theme-choice="forest-noir"><i class="swatch swatch-2"></i><span>02</span><strong>Forest Noir</strong></button>
+        <button class="theme-option" type="button" data-theme-choice="bright-moss"><i class="swatch swatch-3"></i><span>03</span><strong>Bright Moss</strong></button>
+        <button class="theme-option" type="button" data-theme-choice="cocoa-paper"><i class="swatch swatch-4"></i><span>04</span><strong>Cocoa Paper</strong></button>
+        <button class="theme-option" type="button" data-theme-choice="soft-glow"><i class="swatch swatch-5"></i><span>05</span><strong>Soft Glow</strong></button>
+      </div>
+    </aside>
 
     <section class="step step--hero is-active" data-step="0" aria-hidden="false">
       <div class="hero-layout">
@@ -45,7 +59,7 @@
           <div class="orbit orbit--a"></div>
           <div class="orbit orbit--b"></div>
           <span class="tag tag--one">365</span>
-          <span class="tag tag--two">you & me</span>
+          <span class="tag tag--two">you &amp; me</span>
           <span class="tag tag--three">one year</span>
         </div>
       </div>
@@ -53,13 +67,13 @@
 
     <section class="step step--words" data-step="1" aria-hidden="true">
       <div class="words-layout">
-        <div class="words-side"><span>02</span><small>WORDS</small></div>
-        <div class="words-main">
+        <div class="words-index"><span>02</span><small>WORDS</small></div>
+        <div class="words-copy">
           <p class="kicker">Иногда слов не хватает</p>
-          <p class="statement">Иногда очень сложно подобрать нужные слова, поэтому сегодня я решил ненадолго одолжить их у одного фильма:</p>
+          <p class="statement"><span class="statement-accent">Иногда</span> очень сложно подобрать нужные слова, поэтому сегодня я решил ненадолго одолжить их у одного фильма:</p>
           <button class="next-button magnetic" type="button"><span>К той самой сцене</span><b>↗</b></button>
         </div>
-        <div class="words-note" aria-hidden="true">some feelings<br />deserve a scene</div>
+        <p class="words-note" aria-hidden="true">some feelings<br />deserve a scene</p>
       </div>
     </section>
 
@@ -67,7 +81,7 @@
       <div class="movie-layout">
         <div class="movie-head">
           <p class="kicker">Та самая сцена</p>
-          <h2>«Отпуск по обмену»</h2>
+          <h2 class="movie-title">«Отпуск по обмену»</h2>
           <p class="movie-sub">The Holiday · 2006</p>
           <div class="timecode"><span>◷ Тайм-код</span><strong>01:46:51</strong></div>
         </div>
@@ -83,12 +97,12 @@
 
     <section class="step step--thanks" data-step="3" aria-hidden="true">
       <div class="thanks-layout">
-        <div class="thanks-intro">
+        <div class="thanks-heading">
           <p class="kicker">Есть ещё кое-что</p>
           <h2>Спасибо тебе.</h2>
-          <p class="thanks-deck">За терпение. За выбор. За наше «мы».</p>
+          <p>За терпение. За выбор. За наше «мы».</p>
         </div>
-        <div class="thanks-panel">
+        <div class="thanks-body">
           <p>Есть ещё кое-что, за что я очень хочу сказать тебе спасибо. Спасибо, что остаёшься рядом, даже когда со мной совсем непросто. Спасибо, что принимаешь мои тревоги, переживания и обиды, не отворачиваешься от меня и продолжаешь быть рядом. Спасибо, что борешься не только за меня, но и за нас — за наши отношения, за наше «мы». Спасибо, что готова меняться вместе со мной, искать компромиссы, слышать меня и строить наши отношения вдвоём. Для меня это невероятно ценно. Спасибо, что продолжаешь выбирать меня каждый день. Я вижу это и обещаю никогда не воспринимать твою любовь и твоё терпение как должное.</p>
           <button class="next-button magnetic" type="button"><span>И самое главное</span><b>↗</b></button>
         </div>
@@ -115,6 +129,6 @@
       <button class="dot" type="button" data-go="4" aria-label="Шаг 5"><span>05</span></button>
     </nav>
   </main>
-  <script src="script-green-v2.js"></script>
+  <script src="themes-v1.js"></script>
 </body>
 </html>
